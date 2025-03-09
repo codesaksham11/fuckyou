@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 AM Valentine Shenanigans</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #121212;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+            opacity: 1;
+        }
+
+        #code-slide img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+        }
+
+        .card {
+            background-color: #ffcccc;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+            position: relative;
+            min-height: 200px;
+        }
+
+        .card .anime-gif {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 60px;
+            height: auto;
+        }
+
+        .ip-card {
+            background-color: #d46a00;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+            position: relative;
+            min-height: 200px;
+        }
+
+        .ip-card p {
+            margin: 8px 0;
+            font-family: monospace;
+        }
+
+        .button {
+            background-color: #ff6961;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 8px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.2s;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+
+        .button.no {
+            background-color: #b0b0b0;
+        }
+    </style>
+</head>
+<body>
+    <div id="code-slide" class="slide active">
+        <img src="./images.jpeg" alt="When you try to code at 3 AM">
+    </div>
+
+    <div id="valentine-slide-1" class="slide">
+        <div class="card">
+            <img src="https://media.giphy.com/media/28AEi3TIvtSP6/giphy.gif" alt="Cute Anime Girl" class="anime-gif">
+            <p>Will you be my Valentine, pretty please?</p>
+            <button class="button yes-btn">Yes</button>
+            <button class="button no no-btn">No</button>
+        </div>
+    </div>
+
+    <div id="valentine-slide-2" class="slide">
+        <div class="card">
+            <img src="https://media.giphy.com/media/KkklFx4wVfw5Ey9FTe/giphy.gif" alt="Sad Anime Begging" class="anime-gif">
+            <p>Why not? C’mon, tap Yes, I’m begging here...</p>
+            <button class="button yes-btn">Yes</button>
+            <button class="button no no-btn">Nuh uh</button>
+        </div>
+    </div>
+
+    <div id="valentine-slide-3" class="slide">
+        <div class="card">
+            <img src="https://media.giphy.com/media/Tyyr7XJh3NKco/giphy.gif" alt="Chocolate Anime" class="anime-gif">
+            <p>I’ve got chocolate... in my pocket... somewhere...</p>
+            <button class="button yes-btn">Yes</button>
+            <button class="button no no-btn">Still No</button>
+        </div>
+    </div>
+
+    <div id="valentine-slide-4" class="slide">
+        <div class="card">
+            <img src="https://media.giphy.com/media/Y3475fKTzcwkIpNuYH/giphy.gif" alt="Good Boy Anime" class="anime-gif">
+            <p>I’ll be a good boy, I swear! No more 3 AM coding!</p>
+            <button class="button yes-btn">Yes</button>
+            <button class="button no no-btn">Nahhh</button>
+        </div>
+    </div>
+
+    <div id="valentine-slide-5" class="slide">
+        <div class="card">
+            <img src="https://media.giphy.com/media/qZgHBlenHa1zKqy6Zn/giphy.gif" alt="Last Chance Cat" class="anime-gif">
+            <p>Last chance! You sure you won’t be my pookie?</p>
+            <button class="button yes-btn">Yes</button>
+            <button class="button no no-btn">Nuh uh</button>
+        </div>
+    </div>
+
+    <div id="ip-slide" class="slide">
+        <div class="ip-card">
+            <img src="./images (1).jpeg" alt="Oil Up Anime" class="anime-gif">
+            <p>You’re done, buddy.</p>
+            <p>Oil up, I’m coming at 19:00. IP: 192.167.1.55</p>
+        </div>
+    </div>
+
+    <div id="yes-slide" class="slide">
+        <div class="card">
+            <img src="https://media.giphy.com/media/5K7ngCtszoxxbaBieC/giphy.gif" alt="Happy Anime" class="anime-gif">
+            <p>Yay! You’re my Valentine! Let’s eat chocolate at 3 AM!</p>
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        // Auto-start with code slide
+        setTimeout(() => {
+            currentSlide = 1; // Move to first Valentine slide
+            showSlide(currentSlide);
+        }, 3000);
+
+        // Button event listeners
+        document.querySelectorAll('.yes-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentSlide = slides.length - 1; // Jump to yes-slide
+                showSlide(currentSlide);
+            });
+        });
+
+        document.querySelectorAll('.no-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentSlide++;
+                if (currentSlide < slides.length - 1) { // Stop before yes-slide
+                    showSlide(currentSlide);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
