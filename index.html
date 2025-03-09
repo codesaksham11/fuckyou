@@ -27,7 +27,10 @@
         }
 
         .slide.active {
-            display: block;
+            display: flex;  /* Make slide a flex container */
+            flex-direction: column; /* Stack children vertically */
+            align-items: center; /* Center children horizontally */
+            justify-content: center; /* Center children vertically */
             opacity: 1;
         }
 
@@ -46,7 +49,8 @@
             min-height: 250px; /* Increased height to fit GIF */
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: space-between; /* Space out content */
+            align-items: center; /* Center items horizontally */
         }
 
         .card p {
@@ -57,7 +61,7 @@
         .card .anime-gif {
             width: 80px; /* Slightly larger for visibility */
             height: auto;
-            margin: 0 auto; /* Center horizontally */
+            /* Removed margin: 0 auto;  Centering is done by .slide and .card */
             padding-bottom: 10px; /* Space between GIF and buttons */
         }
 
@@ -71,6 +75,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;  /* Center horizontally */
         }
 
         .ip-card p {
@@ -81,7 +86,7 @@
         .ip-card .anime-gif {
             width: 80px;
             height: auto;
-            margin: 0 auto;
+            /* margin: 0 auto; */
             padding-bottom: 10px;
         }
 
@@ -103,6 +108,14 @@
 
         .button.no {
             background-color: #b0b0b0;
+        }
+
+        /* Style buttons container for centering */
+        .card > div,
+        .ip-card > div {
+            display: flex; /* Flexbox for button centering */
+            justify-content: center; /* Center buttons horizontally */
+            width: 100%; /* Use full width */
         }
     </style>
 </head>
@@ -172,7 +185,7 @@
                 <p>You’re done, buddy.</p>
                 <p>Oil up, I’m coming at 19:00. IP: 192.167.1.55</p>
             </div>
-            <img src="https://github.com/codesaksham11/babyshark/raw/main/images (1).jpeg" alt="Oil Up Anime" class="anime-gif">
+            <img src="https://github.com/codesaksham11/babyshark/raw/main/images%20(1).jpeg" alt="Oil Up Anime" class="anime-gif">
         </div>
     </div>
 
@@ -210,6 +223,9 @@
             btn.addEventListener('click', () => {
                 currentSlide++;
                 if (currentSlide < slides.length - 1) { // Stop before yes-slide
+                    showSlide(currentSlide);
+                } else {
+                    currentSlide = slides.length - 2; //Keep on last No slide (ip-slide)
                     showSlide(currentSlide);
                 }
             });
