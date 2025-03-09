@@ -43,15 +43,22 @@
             padding: 25px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
             position: relative;
-            min-height: 200px;
+            min-height: 250px; /* Increased height to fit GIF */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card p {
+            margin: 0;
+            padding-bottom: 10px; /* Space between text and GIF */
         }
 
         .card .anime-gif {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 60px;
+            width: 80px; /* Slightly larger for visibility */
             height: auto;
+            margin: 0 auto; /* Center horizontally */
+            padding-bottom: 10px; /* Space between GIF and buttons */
         }
 
         .ip-card {
@@ -60,12 +67,22 @@
             padding: 25px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
             position: relative;
-            min-height: 200px;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .ip-card p {
             margin: 8px 0;
             font-family: monospace;
+        }
+
+        .ip-card .anime-gif {
+            width: 80px;
+            height: auto;
+            margin: 0 auto;
+            padding-bottom: 10px;
         }
 
         .button {
@@ -91,66 +108,78 @@
 </head>
 <body>
     <div id="code-slide" class="slide active">
-        <img src="./images.jpeg" alt="When you try to code at 3 AM">
+        <img src="https://github.com/codesaksham11/babyshark/raw/main/images.jpeg" alt="When you try to code at 3 AM">
     </div>
 
     <div id="valentine-slide-1" class="slide">
         <div class="card">
-            <img src="https://media.giphy.com/media/28AEi3TIvtSP6/giphy.gif" alt="Cute Anime Girl" class="anime-gif">
             <p>Will you be my Valentine, pretty please?</p>
-            <button class="button yes-btn">Yes</button>
-            <button class="button no no-btn">No</button>
+            <img src="https://media.giphy.com/media/28AEi3TIvtSP6/giphy.gif" alt="Cute Anime Girl" class="anime-gif">
+            <div>
+                <button class="button yes-btn">Yes</button>
+                <button class="button no no-btn">No</button>
+            </div>
         </div>
     </div>
 
     <div id="valentine-slide-2" class="slide">
         <div class="card">
-            <img src="https://media.giphy.com/media/KkklFx4wVfw5Ey9FTe/giphy.gif" alt="Sad Anime Begging" class="anime-gif">
             <p>Why not? C’mon, tap Yes, I’m begging here...</p>
-            <button class="button yes-btn">Yes</button>
-            <button class="button no no-btn">Nuh uh</button>
+            <img src="https://media.giphy.com/media/KkklFx4wVfw5Ey9FTe/giphy.gif" alt="Sad Anime Begging" class="anime-gif">
+            <div>
+                <button class="button yes-btn">Yes</button>
+                <button class="button no no-btn">Nuh uh</button>
+            </div>
         </div>
     </div>
 
     <div id="valentine-slide-3" class="slide">
         <div class="card">
-            <img src="https://media.giphy.com/media/Tyyr7XJh3NKco/giphy.gif" alt="Chocolate Anime" class="anime-gif">
             <p>I’ve got chocolate... in my pocket... somewhere...</p>
-            <button class="button yes-btn">Yes</button>
-            <button class="button no no-btn">Still No</button>
+            <img src="https://media.giphy.com/media/Tyyr7XJh3NKco/giphy.gif" alt="Chocolate Anime" class="anime-gif">
+            <div>
+                <button class="button yes-btn">Yes</button>
+                <button class="button no no-btn">Still No</button>
+            </div>
         </div>
     </div>
 
     <div id="valentine-slide-4" class="slide">
         <div class="card">
-            <img src="https://media.giphy.com/media/Y3475fKTzcwkIpNuYH/giphy.gif" alt="Good Boy Anime" class="anime-gif">
             <p>I’ll be a good boy, I swear! No more 3 AM coding!</p>
-            <button class="button yes-btn">Yes</button>
-            <button class="button no no-btn">Nahhh</button>
+            <img src="https://media.giphy.com/media/Y3475fKTzcwkIpNuYH/giphy.gif" alt="Good Boy Anime" class="anime-gif">
+            <div>
+                <button class="button yes-btn">Yes</button>
+                <button class="button no no-btn">Nahhh</button>
+            </div>
         </div>
     </div>
 
     <div id="valentine-slide-5" class="slide">
         <div class="card">
-            <img src="https://media.giphy.com/media/qZgHBlenHa1zKqy6Zn/giphy.gif" alt="Last Chance Cat" class="anime-gif">
             <p>Last chance! You sure you won’t be my pookie?</p>
-            <button class="button yes-btn">Yes</button>
-            <button class="button no no-btn">Nuh uh</button>
+            <img src="https://media.giphy.com/media/qZgHBlenHa1zKqy6Zn/giphy.gif" alt="Last Chance Cat" class="anime-gif">
+            <div>
+                <button class="button yes-btn">Yes</button>
+                <button class="button no no-btn">Nuh uh</button>
+            </div>
         </div>
     </div>
 
     <div id="ip-slide" class="slide">
         <div class="ip-card">
-            <img src="./images (1).jpeg" alt="Oil Up Anime" class="anime-gif">
-            <p>You’re done, buddy.</p>
-            <p>Oil up, I’m coming at 19:00. IP: 192.167.1.55</p>
+            <div>
+                <p>You’re done, buddy.</p>
+                <p>Oil up, I’m coming at 19:00. IP: 192.167.1.55</p>
+            </div>
+            <img src="https://github.com/codesaksham11/babyshark/raw/main/images (1).jpeg" alt="Oil Up Anime" class="anime-gif">
         </div>
     </div>
 
     <div id="yes-slide" class="slide">
         <div class="card">
-            <img src="https://media.giphy.com/media/5K7ngCtszoxxbaBieC/giphy.gif" alt="Happy Anime" class="anime-gif">
             <p>Yay! You’re my Valentine! Let’s eat chocolate at 3 AM!</p>
+            <img src="https://media.giphy.com/media/5K7ngCtszoxxbaBieC/giphy.gif" alt="Happy Anime" class="anime-gif">
         </div>
     </div>
 
